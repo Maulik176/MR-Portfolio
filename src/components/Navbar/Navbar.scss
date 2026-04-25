@@ -1,0 +1,237 @@
+.app__navbar {
+    width: 100%;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: 1rem 2rem;
+    background: rgba(7, 11, 20, 0.22);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 2;
+}
+
+.app__navbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 55%),
+      radial-gradient(900px 140px at 20% 0%, rgba(25, 244, 182, 0.12), rgba(25, 244, 182, 0) 60%);
+    opacity: 0.9;
+}
+
+.app__navbar > * {
+    position: relative;
+    z-index: 1;
+}
+
+.app__navbar--scrolled {
+    background: rgba(7, 11, 20, 0.78);
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0px 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .app__navbar {
+        background: rgba(7, 11, 20, 0.88);
+    }
+}
+
+.app__navbar-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  
+    img {
+      width: 90px;
+      height: 20px;
+  
+      @media screen and (min-width: 2000px) {
+        width: 180px;
+        height: 40px;
+      }
+    }
+  }
+
+  .app__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    list-style: none;
+    position: relative;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+
+    .app__navbar-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 34px;
+      width: 64px;
+      opacity: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      z-index: 1;
+
+      background:
+        radial-gradient(120px 40px at 30% 30%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 60%),
+        linear-gradient(120deg, rgba(25, 244, 182, 0.26), rgba(49, 59, 172, 0.14));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0px 10px 40px rgba(0, 0, 0, 0.35),
+        0px 0px 36px rgba(25, 244, 182, 0.12);
+      filter: blur(0px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  
+    li:not(.app__navbar-indicator)
+    {
+        margin: 0 1rem;
+        cursor: pointer;
+  
+        flex-direction: column;
+
+
+  
+
+  
+        a {
+            color: rgba(255, 255, 255, 0.76);
+            text-decoration: none;
+            flex-direction: column;
+  
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+  
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+  
+            &:hover {
+            color: var(--secondary-color);
+            }
+        }
+
+        a.is-active {
+            color: rgba(255, 255, 255, 0.92);
+        }
+  
+
+    }
+  
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
+}
+
+.app__navbar-menu {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+
+    svg 
+    {
+        width: 70%;
+        height: 70%;
+        color: var(--white-color);
+    }
+
+    div {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+        padding: 1rem;
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+        background: url('../../assets/bgWhite.png');
+        background:
+          radial-gradient(1200px 700px at 15% 20%, rgba(25, 244, 182, 0.18), rgba(25, 244, 182, 0) 55%),
+          rgba(7, 11, 20, 0.92);
+        background-size: cover;
+        background-repeat: repeat;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.55);
+
+        svg {
+            width: 35px;
+            height: 35px;
+            color: var(--secondary-color);
+            margin: 0.5rem 1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+      
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            li {
+                margin: 1rem;
+        
+                a {
+                  color: rgba(255, 255, 255, 0.76);
+                  text-decoration: none;
+                  font-size: 1rem;
+                  text-transform: uppercase;
+                  font-weight: 500;
+                  letter-spacing: 0.08em;
+        
+                  transition: all 0.3s ease-in-out;
+
+                  &:hover {
+                    color: var(--secondary-color);
+                  }
+                }
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        display: none;
+    }
+}
+
+
+
+
+
+
+      
+
+    
+

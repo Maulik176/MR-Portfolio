@@ -1,0 +1,43 @@
+{
+  "name": "maulik-portfolio-reconstructed",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "api": "node server/index.js",
+    "start": "concurrently -k \"npm:api\" \"npm:start:client\"",
+    "start:client": "SASS_SILENCE_DEPRECATIONS=legacy-js-api react-scripts start",
+    "build": "SASS_SILENCE_DEPRECATIONS=legacy-js-api react-scripts build",
+    "serve": "NODE_ENV=production node server/index.js",
+    "test": "SASS_SILENCE_DEPRECATIONS=legacy-js-api react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@sanity/client": "^3.0.0",
+    "@sanity/image-url": "^1.0.2",
+    "concurrently": "^9.2.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "framer-motion": "^6.5.1",
+    "gsap": "^3.12.5",
+    "http-proxy-middleware": "^3.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.12.0",
+    "react-scripts": "^5.0.1",
+    "react-tooltip": "^4.2.21",
+    "sass": "^1.77.8",
+    "three": "^0.160.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

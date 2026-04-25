@@ -1,0 +1,116 @@
+.skillsConstellation {
+  width: min(980px, 92vw);
+  margin: 1.5rem auto 0;
+  position: relative;
+}
+
+.skillsConstellation__canvas {
+  height: 320px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(700px 260px at 50% 20%, rgba(25, 244, 182, 0.10), rgba(25, 244, 182, 0) 55%),
+    radial-gradient(520px 260px at 65% 70%, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 60%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: 0px 22px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  position: relative;
+}
+
+.skillsConstellation__canvas::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(closest-side at 30% 30%, rgba(25, 244, 182, 0.12), rgba(25, 244, 182, 0) 60%),
+    radial-gradient(closest-side at 70% 60%, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 62%),
+    linear-gradient(120deg, rgba(49, 59, 172, 0.10), rgba(25, 244, 182, 0.08));
+  filter: blur(36px);
+  transform: translate3d(0, 0, 0);
+  animation: auroraDrift 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.skillsConstellation__canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.06) 1px,
+      rgba(255, 255, 255, 0.00) 1px,
+      rgba(255, 255, 255, 0.00) 6px
+    );
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skillsConstellation__canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.skillsConstellation__label {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.skillsConstellation__labelTitle {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.skillsConstellation__labelValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skillsConstellation__labelIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 3px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 450px) {
+  .skillsConstellation__canvas {
+    height: 260px;
+  }
+}
+
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-2%, -2%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(2%, 2%, 0) rotate(6deg);
+  }
+}

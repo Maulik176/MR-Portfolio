@@ -1,0 +1,169 @@
+.expTimeline {
+  width: min(1100px, 92vw);
+  margin: 2.25rem auto 0;
+
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 22px;
+}
+
+.expStickyCol {
+  position: sticky;
+  top: 110px; /* below navbar */
+  align-self: start;
+  padding-top: 2px;
+  height: fit-content;
+}
+
+.expStickyYearPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  box-shadow: 0px 22px 80px rgba(0, 0, 0, 0.35);
+}
+
+.expStickyRail {
+  margin-top: 14px;
+  height: min(540px, 64vh);
+  width: 2px;
+  background: linear-gradient(180deg, rgba(25, 244, 182, 0.18), rgba(255, 255, 255, 0.08));
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.expStickyProgress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(25, 244, 182, 0.65), rgba(49, 59, 172, 0.35));
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.expScrollCol {
+  display: grid;
+  gap: 22px;
+}
+
+.expYearSection {
+  padding: 10px 0 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.expYearSection:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.expYearHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.expYearDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(25, 244, 182, 0.9);
+  box-shadow: 0px 0px 0px 6px rgba(25, 244, 182, 0.10);
+  flex: 0 0 auto;
+  transform: translateY(-1px);
+}
+
+.expYearPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.expYearHint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.expCardsCol {
+  display: grid;
+  gap: 14px;
+}
+
+.expCard {
+  border-radius: 18px;
+  padding: 16px 16px 14px;
+  background:
+    radial-gradient(620px 240px at 20% 10%, rgba(25, 244, 182, 0.10), rgba(25, 244, 182, 0) 60%),
+    rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0px 22px 80px rgba(0, 0, 0, 0.45);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.expCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(25, 244, 182, 0.22);
+  box-shadow: 0px 28px 100px rgba(0, 0, 0, 0.55);
+}
+
+.expCard__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.expCard__role {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.expCard__company {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.expCard__desc {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media screen and (max-width: 900px) {
+  .expTimeline {
+    grid-template-columns: 1fr;
+  }
+
+  .expStickyCol {
+    display: none;
+  }
+
+  .expYearHint {
+    display: none;
+  }
+}

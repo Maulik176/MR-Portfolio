@@ -1,0 +1,17 @@
+.app__spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 1;
+
+  background:
+    radial-gradient(
+      320px 260px at var(--spot-x, 50vw) var(--spot-y, 35vh),
+      rgba(25, 244, 182, var(--spot-a, 0)),
+      rgba(25, 244, 182, 0) 68%
+    );
+  mix-blend-mode: screen;
+  filter: blur(2px);
+}
+

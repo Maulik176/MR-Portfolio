@@ -1,0 +1,343 @@
+#home {
+    position: relative;
+    background:
+      radial-gradient(1200px 700px at 15% 20%, rgba(25, 244, 182, 0.25), rgba(25, 244, 182, 0) 55%),
+      radial-gradient(900px 650px at 85% 35%, rgba(49, 59, 172, 0.22), rgba(49, 59, 172, 0) 60%),
+      linear-gradient(180deg, #070b14 0%, #0b1221 55%, #0a0f1c 100%);
+  
+    // disable the default padding styles
+    .app__wrapper {
+      padding: 0;
+  
+      .copyright {
+        display: none;
+      }
+    }
+  }
+  
+  .app__header {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+
+    padding: 6rem 2rem 0rem;
+    position: relative;
+    overflow: hidden;
+  
+    @media screen and (min-width: 2000px) {
+      padding-top: 8rem;
+    }
+  
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  
+    @media screen and (max-width: 450px) {
+      padding: 6rem 1rem 2rem;
+    }
+  }
+
+  // Header-only animated backdrop (replaces the Three.js globe on mobile and
+  // avoids being hidden behind the portrait on desktop).
+  .app__header-bgFx {
+    position: absolute;
+    inset: -12% -10% -14%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.95;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .heroGrid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.22;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 110px 110px;
+    background-position: 0px 0px;
+    mask-image: radial-gradient(60% 55% at 45% 45%, #000 55%, transparent 90%);
+    -webkit-mask-image: radial-gradient(60% 55% at 45% 45%, #000 55%, transparent 90%);
+    filter: blur(0.15px);
+  }
+
+  .heroOrb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(34px);
+    opacity: 0.9;
+    mix-blend-mode: screen;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .heroOrb.orb1 {
+    width: 520px;
+    height: 520px;
+    left: 10%;
+    top: 10%;
+    background: radial-gradient(circle at 30% 30%, rgba(25, 244, 182, 0.30), rgba(25, 244, 182, 0) 62%);
+  }
+
+  .heroOrb.orb2 {
+    width: 680px;
+    height: 680px;
+    right: 6%;
+    top: 18%;
+    background: radial-gradient(circle at 40% 30%, rgba(49, 59, 172, 0.24), rgba(49, 59, 172, 0) 65%);
+  }
+
+  .heroOrb.orb3 {
+    width: 520px;
+    height: 520px;
+    left: 34%;
+    bottom: 2%;
+    background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 70%);
+  }
+
+  @media screen and (max-width: 600px) {
+    .app__header-bgFx {
+      inset: -18% -18% -18%;
+      opacity: 0.85;
+    }
+
+    .heroGrid {
+      opacity: 0.12;
+      background-size: 140px 140px;
+      mask-image: radial-gradient(70% 60% at 50% 30%, #000 55%, transparent 92%);
+      -webkit-mask-image: radial-gradient(70% 60% at 50% 30%, #000 55%, transparent 92%);
+    }
+
+    .heroOrb {
+      filter: blur(42px);
+    }
+
+    .heroOrb.orb1 {
+      width: 420px;
+      height: 420px;
+      left: -10%;
+      top: 6%;
+      opacity: 0.8;
+    }
+
+    .heroOrb.orb2 {
+      width: 520px;
+      height: 520px;
+      right: -22%;
+      top: 18%;
+      opacity: 0.75;
+    }
+
+    .heroOrb.orb3 {
+      display: none;
+    }
+  }
+  
+  .app__header-info {
+    flex: 0.65;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+  
+    margin: 0 2rem;
+    z-index: 1;
+  
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      margin-right: 0rem;
+    }
+  }
+  
+  .app__header-badge {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+  
+    .badge-cmp,
+    .tag-cmp {
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 15px;
+      flex-direction: row;
+      width: auto;
+  
+      box-shadow: 0px 18px 60px rgba(0, 0, 0, 0.35);
+    }
+  
+    .tag-cmp {
+      flex-direction: column;
+      margin-top: 3rem;
+  
+      p {
+        width: 100%;
+        text-transform: uppercase;
+        text-align: right;
+        letter-spacing: 0.08em;
+      }
+    }
+  
+    span {
+      font-size: 2.5rem;
+  
+      @media screen and (min-width: 2000px) {
+        font-size: 5rem;
+      }
+    }
+  
+    @media screen and (max-width: 1200px) {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+  
+  .app__header-circles {
+    flex: 0.75;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 100%;
+    margin-left: 1rem;
+  
+    div {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+  
+      background: var(--white-color);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  
+      img {
+        width: 60%;
+        height: 60%;
+      }
+    }
+  
+    // circles with different height & width
+  
+    div:nth-child(1) {
+      width: 100px;
+      height: 100px;
+    }
+  
+    div:nth-child(2) {
+      margin: 1.75rem;
+      width: 150px;
+      height: 150px;
+    }
+  
+    div:nth-child(3) {
+      width: 70px;
+      height: 70px;
+    }
+  
+    @media screen and (min-width: 2000px) {
+      div:nth-child(2) {
+        width: 400px;
+        height: 400px;
+      }
+  
+      div:nth-child(3) {
+        width: 170px;
+        height: 170px;
+      }
+  
+      div:nth-child(1) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-left: 0;
+  
+      div {
+        margin: 1rem;
+      }
+    }
+  }
+  
+  .app__header-img {
+    flex: 1;
+    height: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+
+    .app__header-portrait {
+      width: min(600px, 92vw);
+      height: min(700px, 74vh);
+      border-radius: 30px;
+      position: relative;
+      overflow: visible;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        // Lift the portrait a bit so it sits higher.
+        object-position: 50% 5%;
+        transform: translateY(-34px) scale(1.22);
+        filter: drop-shadow(0px 40px 120px rgba(0, 0, 0, 0.55));
+        position: relative;
+        z-index: 1;
+      }
+    }
+  
+    @media screen and (max-width: 1200px) {
+      margin: 2rem 0;
+    }
+
+    // Mobile: keep hero compact and avoid the sphere dominating the screen.
+    @media screen and (max-width: 600px) {
+      align-items: center;
+
+      .app__header-portrait {
+        width: min(420px, 92vw);
+        height: min(520px, 54vh);
+        border-radius: 26px;
+        overflow: visible;
+
+        img {
+          transform: translateY(-18px) scale(1.12);
+          object-position: 50% 8%;
+          filter: drop-shadow(0px 26px 80px rgba(0, 0, 0, 0.55));
+        }
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .app__header-portrait {
+        width: min(380px, 92vw);
+        height: min(480px, 50vh);
+        overflow: visible;
+
+        img {
+          transform: translateY(-12px) scale(1.08);
+        }
+      }
+    }
+
+    @media screen and (max-width: 360px) {
+      .app__header-portrait {
+        height: min(440px, 46vh);
+      }
+    }
+  }
